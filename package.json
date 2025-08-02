@@ -12,6 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type":"module",
   "bugs": {
     "url": "https://github.com/vedu2811/express/issues"
   },
