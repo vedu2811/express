@@ -7,9 +7,19 @@ const app = express()
 
 const port = 2811
 
+app.use((req,res,next)=>{
+    console.log("Start");
+
+    res.on('finish',()=>{
+        console.log('End');
+    })
+    next()
+})
+
 // app.METHOD(PATH,HANDLER function);
 // Defining a simple route
 app.get('/',(req,res)=>{
+    console.log('Middle');
     res.send('Hello, Express')
 })
 
