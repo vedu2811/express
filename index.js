@@ -54,6 +54,13 @@ app.put('/users/:id',(req,res)=>{
     })
 })
 
+app.delete('/users/:id',(req,res)=>{
+    const userId=req.params.id;
+    res.json({
+        message: `User with ID ${userId} deleted successfully`
+    })
+})
+
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
 })
