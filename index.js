@@ -1,5 +1,6 @@
 import express from 'express'
-import { userLogin, userSignup } from './controller.js'
+// import { userLogin, userSignup } from './controller.js'
+import router from './route.js'
 // import {userNameController, searchController } from './controller.js'
 
 const app = express()
@@ -32,6 +33,8 @@ app.get('/',(req,res)=>{
 
 // app.get('/user/login',userLogin)
 // app.get('/user/signup',userSignup)
+
+app.use('/user',router)
 
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
