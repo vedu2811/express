@@ -30,8 +30,8 @@ app.get('/',(req,res)=>{
 //     res.send('This is contact route')
 // })
 
-app.get('/user/login',userLogin)
-app.get('/user/signup',userSignup)
+// app.get('/user/login',userLogin)
+// app.get('/user/signup',userSignup)
 
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
