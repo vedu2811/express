@@ -63,6 +63,9 @@ app.get('/',(req,res)=>{
 
 app.get('/things/:name/:id',(req,res)=>{
     const {name,id}=req.params
+    if (!/^\d{5}$/.test(id)) {
+      return res.status(404).json({ error: 'ID must be exactly 5 digits' });
+   }
     res.json({
         id,
         name
