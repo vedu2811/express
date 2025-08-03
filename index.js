@@ -7,7 +7,7 @@ const app = express()
 
 const port = 2811
 
-app.use((req,res,next)=>{
+app.use('/welcome',(req,res,next)=>{
     console.log('A new request received at '+Date.now());
     next()
 })
@@ -16,6 +16,10 @@ app.use((req,res,next)=>{
 // Defining a simple route
 app.get('/',(req,res)=>{
     res.send('Hello, Express')
+})
+
+app.get('/welcome',(req,res)=>{
+    res.send('Welcome to Express App')
 })
 
 // Dynamic Routing
