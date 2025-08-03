@@ -8,3 +8,10 @@
 //     res.send(`Searching for ${keyword}`)
 // }
 
+export const userLogin = (req,res) => {
+    res.send('user login route')
+}
+
+export const userSignup = (req,res) => {
+    res.send('user signup route')
+}
