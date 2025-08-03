@@ -36,10 +36,20 @@ app.get('/',(req,res)=>{
 
 app.use('/user',router)
 
+// HTTP METHODS
+
 app.post('/users',express.json(),(req,res)=>{
     const {name,email} = req.body;
     res.json({
         message: `User ${name} with email ${email} created successfully`
+    })
+})
+
+app.put('/users/:id',express.json(),(req,res)=>{
+    const userId = req.params.id;
+    const {name,email} =req.body;
+    res.json({
+        message:`User ${userId} updated to ${name}, ${email}`
     })
 })
 
