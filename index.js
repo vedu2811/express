@@ -34,8 +34,8 @@ app.get('/',(req,res)=>{
 // app.get('/user/login',userLogin)
 // app.get('/user/signup',userSignup)
 
-app.use('/user',router)
-app.use(express.json())
+// app.use('/user',router)
+// app.use(express.json())
 
 // HTTP METHODS
 
