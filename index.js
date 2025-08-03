@@ -18,6 +18,11 @@ app.get('/error',()=>{
     throw new Error('This is a test error')
 })
 
+app.use((err,req,res,next)=>{
+    console.error(err.message)
+    res.send('Internal Server Error')
+})
+
 // // MIDDLEWARE
 
 // app.use((req,res,next)=>{
