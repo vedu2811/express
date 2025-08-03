@@ -4,10 +4,21 @@ const app = express()
 
 const port = 2811
 
-// Define a simple route
 // app.METHOD(PATH,HANDLER function);
+
+// Defining a simple route
 app.get('/',(req,res)=>{
     res.send('Hello, Express')
+})
+
+// About Route
+app.get('/about',(req,res)=>{
+    res.send('This is about route')
+})
+
+// Contact Route
+app.get('/contact',(req,res)=>{
+    res.send('This is contact route')
 })
 
 app.listen(port,()=>{
