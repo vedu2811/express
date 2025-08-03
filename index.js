@@ -13,11 +13,11 @@ app.get('/',(req,res)=>{
 })
 
 // Dynamic Routing
-app.get('/user/:username',userNameController)
+// app.get('/user/:username',userNameController)
 
 // Query String 
 // /search?keyword=express
-app.get('/search',searchController)
+// app.get('/search',searchController)
 
 // // About Route
 // app.get('/about',(req,res)=>{
