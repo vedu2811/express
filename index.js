@@ -72,6 +72,11 @@ app.get('/things/:name/:id',(req,res)=>{
     })
 })
 
+// Catching all invalid routes
+app.get('*any',(req,res)=>{
+    res.send('Sorry, Invalid URL..')
+})
+
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
 })
