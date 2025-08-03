@@ -7,8 +7,12 @@ const app = express()
 
 const port = 2811
 
-// app.METHOD(PATH,HANDLER function);
+app.use((req,res,next)=>{
+    console.log('A new request received at '+Date.now());
+    next()
+})
 
+// app.METHOD(PATH,HANDLER function);
 // Defining a simple route
 app.get('/',(req,res)=>{
     res.send('Hello, Express')
