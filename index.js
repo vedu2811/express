@@ -1,6 +1,6 @@
 import express from 'express'
 // import { userLogin, userSignup } from './controller.js'
-import router from './route.js'
+// import router from './route.js'
 // import {userNameController, searchController } from './controller.js'
 
 const app = express()
@@ -39,27 +39,27 @@ app.use(express.json())
 
 // HTTP METHODS
 
-app.post('/users',(req,res)=>{
-    const {name,email} = req.body;
-    res.json({
-        message: `User ${name} with email ${email} created successfully`
-    })
-})
+// app.post('/users',(req,res)=>{
+//     const {name,email} = req.body;
+//     res.json({
+//         message: `User ${name} with email ${email} created successfully`
+//     })
+// })
 
-app.put('/users/:id',(req,res)=>{
-    const userId = req.params.id;
-    const {name,email} =req.body;
-    res.json({
-        message:`User ${userId} updated to ${name}, ${email}`
-    })
-})
+// app.put('/users/:id',(req,res)=>{
+//     const userId = req.params.id;
+//     const {name,email} =req.body;
+//     res.json({
+//         message:`User ${userId} updated to ${name}, ${email}`
+//     })
+// })
 
-app.delete('/users/:id',(req,res)=>{
-    const userId=req.params.id;
-    res.json({
-        message: `User with ID ${userId} deleted successfully`
-    })
-})
+// app.delete('/users/:id',(req,res)=>{
+//     const userId=req.params.id;
+//     res.json({
+//         message: `User with ID ${userId} deleted successfully`
+//     })
+// })
 
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
