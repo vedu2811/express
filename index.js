@@ -11,15 +11,15 @@ app.get('/',(req,res)=>{
     res.send('Hello, Express')
 })
 
-// About Route
-app.get('/about',(req,res)=>{
-    res.send('This is about route')
-})
+// // About Route
+// app.get('/about',(req,res)=>{
+//     res.send('This is about route')
+// })
 
-// Contact Route
-app.get('/contact',(req,res)=>{
-    res.send('This is contact route')
-})
+// // Contact Route
+// app.get('/contact',(req,res)=>{
+//     res.send('This is contact route')
+// })
 
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
