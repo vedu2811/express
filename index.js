@@ -11,9 +11,17 @@ app.get('/',(req,res)=>{
     res.send('Hello, Express')
 })
 
+// Dynamic Routing
 app.get('/user/:username',(req,res)=>{
     const username=req.params.username;
     res.send(`Welcome ${username}`)
+})
+
+// Query String 
+// /search?keyword=express
+app.get('/search',(req,res)=>{
+    const keyword=req.query.keyword;
+    res.send(`Searching for ${keyword}`)
 })
 
 // // About Route
