@@ -61,6 +61,14 @@ app.get('/',(req,res)=>{
 //     })
 // })
 
+app.get('/things/:name/:id',(req,res)=>{
+    const {name,id}=req.params
+    res.json({
+        id,
+        name
+    })
+})
+
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
 })
