@@ -14,6 +14,10 @@ app.get('/',(req,res)=>{
     res.send('Hello, Express')
 })
 
+app.get('/error',()=>{
+    throw new Error('This is a test error')
+})
+
 // // MIDDLEWARE
 
 // app.use((req,res,next)=>{
