@@ -10,18 +10,17 @@ const port = 2811
 // app.METHOD(PATH,HANDLER function);
 // Defining a simple route
 app.get('/',(req,res)=>{
-    console.log('Middle');
     res.send('Hello, Express')
 })
 
-app.get('/error',()=>{
-    throw new Error('This is a test error')
-})
+// app.get('/error',()=>{
+//     throw new Error('This is a test error')
+// })
 
-app.use((err,req,res,next)=>{
-    console.error(err.message)
-    res.send('Internal Server Error')
-})
+// app.use((err,req,res,next)=>{
+//     console.error(err.message)
+//     res.send('Internal Server Error')
+// })
 
 // // MIDDLEWARE
 
