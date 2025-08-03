@@ -35,17 +35,18 @@ app.get('/',(req,res)=>{
 // app.get('/user/signup',userSignup)
 
 app.use('/user',router)
+app.use(express.json())
 
 // HTTP METHODS
 
-app.post('/users',express.json(),(req,res)=>{
+app.post('/users',(req,res)=>{
     const {name,email} = req.body;
     res.json({
         message: `User ${name} with email ${email} created successfully`
     })
 })
 
-app.put('/users/:id',express.json(),(req,res)=>{
+app.put('/users/:id',(req,res)=>{
     const userId = req.params.id;
     const {name,email} =req.body;
     res.json({
