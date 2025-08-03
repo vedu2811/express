@@ -1,5 +1,6 @@
 import express from 'express'
-import {userNameController, searchController } from './controller.js'
+import { userLogin, userSignup } from './controller.js'
+// import {userNameController, searchController } from './controller.js'
 
 const app = express()
 
@@ -28,6 +29,9 @@ app.get('/',(req,res)=>{
 // app.get('/contact',(req,res)=>{
 //     res.send('This is contact route')
 // })
+
+app.get('/user/login',userLogin)
+app.get('/user/signup',userSignup)
 
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
