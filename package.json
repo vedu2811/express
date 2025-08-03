@@ -12,13 +12,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type":"module",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/vedu2811/express/issues"
   },
   "homepage": "https://github.com/vedu2811/express#readme",
   "description": "",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
   },
   "devDependencies": {
