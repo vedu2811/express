@@ -13,34 +13,6 @@ app.get('/',(req,res)=>{
     res.send('Hello, Express')
 })
 
-// app.get('/error',()=>{
-//     throw new Error('This is a test error')
-// })
-
-// app.use((err,req,res,next)=>{
-//     console.error(err.message)
-//     res.send('Internal Server Error')
-// })
-
-// // MIDDLEWARE
-
-// app.use((req,res,next)=>{
-//     console.log("Start");
-
-//     res.on('finish',()=>{
-//         console.log('End');
-//     })
-//     next()
-// })
-
-// app.use('/welcome',(req,res,next)=>{
-//     console.log('A new request received at '+Date.now());
-//     next()
-// })
-
-// app.get('/welcome',(req,res)=>{
-//     res.send('Welcome to Express App')
-// })
 
 // // Dynamic Routing
 
@@ -104,6 +76,37 @@ app.get('/',(req,res)=>{
 // // Catching all invalid routes
 // app.get('*any',(req,res)=>{
 //     res.send('Sorry, Invalid URL..')
+// })
+
+// // MIDDLEWARE
+
+// app.use((req,res,next)=>{
+//     console.log("Start");
+
+//     res.on('finish',()=>{
+//         console.log('End');
+//     })
+//     next()
+// })
+
+// app.use('/welcome',(req,res,next)=>{
+//     console.log('A new request received at '+Date.now());
+//     next()
+// })
+
+// app.get('/welcome',(req,res)=>{
+//     res.send('Welcome to Express App')
+// })
+
+// Handling error using middleware
+
+// app.get('/error',()=>{
+//     throw new Error('This is a test error')
+// })
+
+// app.use((err,req,res,next)=>{
+//     console.error(err.message)
+//     res.send('Internal Server Error')
 // })
 
 app.listen(port,()=>{
