@@ -13,7 +13,8 @@ app.set('view engine','ejs')
 // app.METHOD(PATH,HANDLER function);
 // Defining a simple route
 app.get('/',(req,res)=>{
-    res.send('Hello, Express')
+    const userName = 'Vedant Jalan'
+    res.render('index',{userName})
 })
 
 // // Dynamic Routing
