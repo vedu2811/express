@@ -8,8 +8,8 @@ const app = express()
 const port = 2811
 
 // Serving static files
-app.use(express.static('public'))
-app.use(express.static('images'))
+app.use('/public',express.static('public'))
+app.use('/images',express.static('images'))
 
 // // SET ejs as the view engine
 // app.set('view engine','ejs')
