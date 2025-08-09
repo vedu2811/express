@@ -9,6 +9,7 @@ const port = 2811
 
 // Serving static files
 app.use(express.static('public'))
+app.use(express.static('images'))
 
 // // SET ejs as the view engine
 // app.set('view engine','ejs')
