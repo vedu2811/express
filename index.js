@@ -7,6 +7,8 @@ const app = express()
 
 const port = 2811
 
+app.use(express.urlencoded({extended:true}))
+
 app.get('/',(req,res)=>{
     res.send("Hello, Express")
 })
