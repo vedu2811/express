@@ -1,15 +1,9 @@
 import express from 'express'
 import multer from 'multer'
+import { storage } from './config/multer.js'
 // import { userLogin, userSignup } from './controller.js'
 // import router from './route.js'
 // import {userNameController, searchController } from './controller.js'
-
-const storage = multer.diskStorage({
-    destination:'uploads',
-    filename: (req,file,cb)=>{
-        cb(null,file.originalname)
-    }
-})
 
 const app = express()
 const upload = multer({
