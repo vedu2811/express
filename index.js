@@ -10,7 +10,7 @@ const upload = multer()
 const port = 2811
 
 app.use(express.urlencoded({extended:true}))
-app.use(upload.array())
+app.use(upload.single('image'))
 
 app.get('/',(req,res)=>{
     res.send("Hello, Express")
@@ -18,6 +18,7 @@ app.get('/',(req,res)=>{
 
 app.post('/form',(req,res)=>{
     console.log(req.body);
+    console.log(req.file);
     res.send("Form received")
 })
 
