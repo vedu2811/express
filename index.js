@@ -7,14 +7,15 @@ const app = express()
 
 const port = 2811
 
-// SET ejs as the view engine
-app.set('view engine','ejs')
+// // SET ejs as the view engine
+// app.set('view engine','ejs')
 
 // app.METHOD(PATH,HANDLER function);
 // Defining a simple route
 app.get('/',(req,res)=>{
-    const userName = 'Vedant Jalan'
-    res.render('index',{userName})
+    res.send("Hello, Express")
+    // const userName = 'Vedant Jalan'
+    // res.render('index',{userName})
 })
 
 // // Dynamic Routing
@@ -111,8 +112,6 @@ app.get('/',(req,res)=>{
 //     console.error(err.message)
 //     res.send('Internal Server Error')
 // })
-
-
 
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
