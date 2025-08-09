@@ -4,8 +4,12 @@ import multer from 'multer'
 // import router from './route.js'
 // import {userNameController, searchController } from './controller.js'
 
+const storage = multer.diskStorage({
+    destination:'uploads'
+})
+
 const app = express()
-const upload = multer()
+const upload = multer({storage:storage})
 
 const port = 2811
 
