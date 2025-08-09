@@ -4,7 +4,6 @@ import express from 'express'
 // import {userNameController, searchController } from './controller.js'
 
 const app = express()
-
 const port = 2811
 
 app.use(express.urlencoded({extended:true}))
