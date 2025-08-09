@@ -1,12 +1,16 @@
 import express from 'express'
+import multer from 'multer'
 // import { userLogin, userSignup } from './controller.js'
 // import router from './route.js'
 // import {userNameController, searchController } from './controller.js'
 
 const app = express()
+const upload = multer()
+
 const port = 2811
 
 app.use(express.urlencoded({extended:true}))
+app.use(upload.array())
 
 app.get('/',(req,res)=>{
     res.send("Hello, Express")
