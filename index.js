@@ -11,6 +11,11 @@ app.get('/',(req,res)=>{
     res.send("Hello, Express")
 })
 
+app.post('/form',(req,res)=>{
+    console.log(req.body);
+    res.send("Form received")
+})
+
 // // Serving static files
 // app.use('/public',express.static('public'))
 // app.use('/images',express.static('images'))
