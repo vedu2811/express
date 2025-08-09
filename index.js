@@ -7,20 +7,20 @@ const app = express()
 
 const port = 2811
 
-// Serving static files
-app.use('/public',express.static('public'))
-app.use('/images',express.static('images'))
+app.get('/',(req,res)=>{
+    res.send("Hello, Express")
+})
+
+// // Serving static files
+// app.use('/public',express.static('public'))
+// app.use('/images',express.static('images'))
 
 // // SET ejs as the view engine
 // app.set('view engine','ejs')
 
 // app.METHOD(PATH,HANDLER function);
 // Defining a simple route
-app.get('/',(req,res)=>{
-    res.send("Hello, Express")
-    // const userName = 'Vedant Jalan'
-    // res.render('index',{userName})
-})
+
 
 // // Dynamic Routing
 
