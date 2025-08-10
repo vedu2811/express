@@ -46,16 +46,13 @@ app.post('/person',async (req,res)=>{
 // Updating data in MONGO DB
 app.put('/person',async (req,res)=>{
     // console.log(req.body);
-    const {email,name,age}=req.body;
-    const newPerson = new Person({
-        name,
-        age,
-        email
-    })
-    await newPerson.save()
-    console.log(newPerson);
+    const {name}=req.body;
     
-    res.send('Person Added')
+    const personData=await Person.find({name})
+    console.log(personData);
+    
+
+    res.send('Person Updated')
 })
 
 // app.post('/form',(req,res)=>{
