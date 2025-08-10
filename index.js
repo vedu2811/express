@@ -27,7 +27,7 @@ app.use(cookieParser())
 // app.use(upload.single('image'))
 
 app.get('/',(req,res)=>{
-    res.cookie('name','express-app')
+    res.cookie('name','express-app',{maxAge:360000})
     res.send("Hello, Express")
 })
 
