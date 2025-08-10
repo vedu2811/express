@@ -31,6 +31,11 @@ app.get('/',(req,res)=>{
     res.send("Hello, Express")
 })
 
+app.get('/fetch',(req,res)=>{
+    console.log(req.cookies);
+    res.send('API called')
+})
+
 // // Saving data in MONGO DB
 // app.post('/person',async (req,res)=>{
 //     // console.log(req.body);
