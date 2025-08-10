@@ -46,9 +46,9 @@ app.post('/person',async (req,res)=>{
 // Updating data in MONGO DB
 app.put('/person',async (req,res)=>{
     // console.log(req.body);
-    const {name}=req.body;
+    const {id}=req.body;
     
-    const personData=await Person.findOne({name})
+    const personData=await Person.findById(id)
     console.log(personData);
     
 
