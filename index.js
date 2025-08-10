@@ -25,6 +25,12 @@ app.get('/',(req,res)=>{
     res.send("Hello, Express")
 })
 
+app.post('/person',express.json(),(req,res)=>{
+    console.log(req.body);
+    res.send('Person Added')
+    
+})
+
 // app.post('/form',(req,res)=>{
 //     console.log(req.body);
 //     console.log(req.file);
