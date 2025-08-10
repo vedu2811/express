@@ -6,3 +6,4 @@ const personSchema = new mongoose.Schema({
     email: String,
 })
 
+export const Person = mongoose.model("Person",personSchema)
