@@ -55,6 +55,14 @@ app.put('/person',async (req,res)=>{
     res.send('Person Updated')
 })
 
+// Deleting data from MONGO DB
+app.delete('/person/:id', async (req,res)=>{
+    const{id}=req.params
+    await Person.findByIdAndDelete(id)
+    res.send('Person Deleted')
+})
+
+
 // app.post('/form',(req,res)=>{
 //     console.log(req.body);
 //     console.log(req.file);
