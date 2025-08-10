@@ -1,5 +1,5 @@
 import express from 'express'
-import mongoose, { mongo } from 'mongoose'
+import { connectDB } from './config/db.js'
 // import multer from 'multer'
 // import { storage } from './config/multer.js'
 // import { userLogin, userSignup } from './controller.js'
@@ -16,12 +16,7 @@ const app = express()
 
 const port = 2811
 
-const MONGODB_URI = 'mongodb+srv://vedant28j:Vedu*2811@cluster0.zyy5qif.mongodb.net/express'
-
-await mongoose.connect(MONGODB_URI).then(()=>{
-    console.log('Database Connected');
-    
-})
+await connectDB()
 
 // app.use(express.urlencoded({extended:true}))
 // app.use(upload.single('image'))
