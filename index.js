@@ -1,6 +1,6 @@
 import express from 'express'
-import { connectDB } from './config/db.js'
-import { Person } from './models/person.js'
+// import { connectDB } from './config/db.js'
+// import { Person } from './models/person.js'
 // import multer from 'multer'
 // import { storage } from './config/multer.js'
 // import { userLogin, userSignup } from './controller.js'
@@ -17,9 +17,9 @@ const app = express()
 
 const port = 2811
 
-await connectDB()
+// await connectDB()
 
-app.use(express.json())
+// app.use(express.json())
 
 // app.use(express.urlencoded({extended:true}))
 // app.use(upload.single('image'))
@@ -28,44 +28,43 @@ app.get('/',(req,res)=>{
     res.send("Hello, Express")
 })
 
-// Saving data in MONGO DB
-app.post('/person',async (req,res)=>{
-    // console.log(req.body);
-    try{
-        const {email,name,age}=req.body;
-        const newPerson = new Person({
-            name,
-            age,
-            email
-        })
-        await newPerson.save()
-        console.log(newPerson);
+// // Saving data in MONGO DB
+// app.post('/person',async (req,res)=>{
+//     // console.log(req.body);
+//     try{
+//         const {email,name,age}=req.body;
+//         const newPerson = new Person({
+//             name,
+//             age,
+//             email
+//         })
+//         await newPerson.save()
+//         console.log(newPerson);
         
-        res.send('Person Added')
-    }catch(err){
-        res.send(err.message)
-    }
-})
+//         res.send('Person Added')
+//     }catch(err){
+//         res.send(err.message)
+//     }
+// })
 
-// Updating data in MONGO DB
-app.put('/person',async (req,res)=>{
-    // console.log(req.body);
-    const {id}=req.body;
+// // Updating data in MONGO DB
+// app.put('/person',async (req,res)=>{
+//     // console.log(req.body);
+//     const {id}=req.body;
     
-    const personData=await Person.findByIdAndUpdate(id,{age:'28'})
+//     const personData=await Person.findByIdAndUpdate(id,{age:'28'})
 
-    console.log(personData);
+//     console.log(personData);
     
-    res.send('Person Updated')
-})
+//     res.send('Person Updated')
+// })
 
-// Deleting data from MONGO DB
-app.delete('/person/:id', async (req,res)=>{
-    const{id}=req.params
-    await Person.findByIdAndDelete(id)
-    res.send('Person Deleted')
-})
-
+// // Deleting data from MONGO DB
+// app.delete('/person/:id', async (req,res)=>{
+//     const{id}=req.params
+//     await Person.findByIdAndDelete(id)
+//     res.send('Person Deleted')
+// })
 
 // app.post('/form',(req,res)=>{
 //     console.log(req.body);
