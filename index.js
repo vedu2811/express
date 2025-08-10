@@ -31,16 +31,20 @@ app.get('/',(req,res)=>{
 // Saving data in MONGO DB
 app.post('/person',async (req,res)=>{
     // console.log(req.body);
-    const {email,name,age}=req.body;
-    const newPerson = new Person({
-        name,
-        age,
-        email
-    })
-    await newPerson.save()
-    console.log(newPerson);
-    
-    res.send('Person Added')
+    try{
+        const {email,name,age}=req.body;
+        const newPerson = new Person({
+            name,
+            age,
+            email
+        })
+        await newPerson.save()
+        console.log(newPerson);
+        
+        res.send('Person Added')
+    }catch(err){
+        res.send(err.message)
+    }
 })
 
 // Updating data in MONGO DB
