@@ -1,5 +1,6 @@
 import express from 'express'
 import { connectDB } from './config/db.js'
+import { Person } from './models/person.js'
 // import multer from 'multer'
 // import { storage } from './config/multer.js'
 // import { userLogin, userSignup } from './controller.js'
@@ -25,10 +26,18 @@ app.get('/',(req,res)=>{
     res.send("Hello, Express")
 })
 
-app.post('/person',express.json(),(req,res)=>{
-    console.log(req.body);
-    res.send('Person Added')
+app.post('/person',express.json(),async (req,res)=>{
+    // console.log(req.body);
+    const {email,name,age}=req.body;
+    const newPerson = new Person({
+        name,
+        age,
+        email
+    })
+    await newPerson.save()
+    console.log(newPerson);
     
+    res.send('Person Added')
 })
 
 // app.post('/form',(req,res)=>{
