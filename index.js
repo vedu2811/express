@@ -1,5 +1,6 @@
 import express from 'express'
-// import cookieParser from 'cookie-parser'
+import cookieParser from 'cookie-parser'
+import session from 'express-session'
 // import { connectDB } from './config/db.js'
 // import { Person } from './models/person.js'
 // import multer from 'multer'
@@ -17,7 +18,12 @@ const app = express()
 // })
 
 const port = 2811
-// app.use(cookieParser())
+app.use(cookieParser())
+app.use(session({
+    secret:'sample-secret',
+    resave:false,
+    saveUninitialized:false
+}))
 
 // await connectDB()
 
