@@ -48,7 +48,7 @@ app.put('/person',async (req,res)=>{
     // console.log(req.body);
     const {name}=req.body;
     
-    const personData=await Person.find({name})
+    const personData=await Person.findOne({name})
     console.log(personData);
     
 
