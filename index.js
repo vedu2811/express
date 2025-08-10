@@ -47,6 +47,11 @@ app.get('/visit',(req,res)=>{
     }
 })
 
+app.get('/remove-visit',(req,res)=>{
+    req.session.destroy()
+    res.send('Session removed')
+})
+
 // app.get('/fetch',(req,res)=>{
 //     console.log(req.cookies);
 //     res.send('API called')
