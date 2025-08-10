@@ -48,9 +48,7 @@ app.put('/person',async (req,res)=>{
     // console.log(req.body);
     const {id}=req.body;
     
-    const personData=await Person.findById(id)
-    personData.age = 30
-    await personData.save()
+    const personData=await Person.findByIdAndUpdate(id,{age:'28'})
 
     console.log(personData);
     
