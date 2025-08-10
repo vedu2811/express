@@ -19,6 +19,8 @@ const port = 2811
 
 await connectDB()
 
+app.use(express.json())
+
 // app.use(express.urlencoded({extended:true}))
 // app.use(upload.single('image'))
 
@@ -26,7 +28,23 @@ app.get('/',(req,res)=>{
     res.send("Hello, Express")
 })
 
-app.post('/person',express.json(),async (req,res)=>{
+// Saving data in MONGO DB
+app.post('/person',async (req,res)=>{
+    // console.log(req.body);
+    const {email,name,age}=req.body;
+    const newPerson = new Person({
+        name,
+        age,
+        email
+    })
+    await newPerson.save()
+    console.log(newPerson);
+    
+    res.send('Person Added')
+})
+
+// Updating data in MONGO DB
+app.put('/person',async (req,res)=>{
     // console.log(req.body);
     const {email,name,age}=req.body;
     const newPerson = new Person({
