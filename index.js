@@ -1,4 +1,5 @@
 import express from 'express'
+import cookieParser from 'cookie-parser'
 // import { connectDB } from './config/db.js'
 // import { Person } from './models/person.js'
 // import multer from 'multer'
@@ -16,6 +17,7 @@ const app = express()
 // })
 
 const port = 2811
+app.use(cookieParser())
 
 // await connectDB()
 
@@ -25,6 +27,7 @@ const port = 2811
 // app.use(upload.single('image'))
 
 app.get('/',(req,res)=>{
+    res.cookie('name','express-app')
     res.send("Hello, Express")
 })
 
