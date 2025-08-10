@@ -49,9 +49,11 @@ app.put('/person',async (req,res)=>{
     const {id}=req.body;
     
     const personData=await Person.findById(id)
+    personData.age = 30
+    await personData.save()
+
     console.log(personData);
     
-
     res.send('Person Updated')
 })
 
