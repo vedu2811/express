@@ -36,6 +36,11 @@ app.get('/fetch',(req,res)=>{
     res.send('API called')
 })
 
+app.get('/remove-cookie',(req,res)=>{
+    res.clearCookie('name')
+    res.send('Cookie cleared')
+})
+
 // // Saving data in MONGO DB
 // app.post('/person',async (req,res)=>{
 //     // console.log(req.body);
