@@ -18,6 +18,7 @@ const app = express();
 // })
 
 const port = 2811;
+app.use(express.json());
 app.use(cookieParser());
 app.use(
   session({
