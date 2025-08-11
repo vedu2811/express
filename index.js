@@ -58,6 +58,14 @@ app.post('/login',async(req,res)=>{
     res.send('User Logged In..')
 })
 
+app.get('/dashboard', (req,res)=>{
+    if(!req.session.user){
+        res.send('Unauthorized')
+    }else{
+        res.send(`Welcome, ${req.session.user.userName}`)
+    }
+})
+
 // app.get('/visit',(req,res)=>{
 //     if(req.session.page_views){
 //         req.session.page_views++;
