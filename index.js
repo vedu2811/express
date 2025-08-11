@@ -48,6 +48,16 @@ app.post('/register',async(req,res)=>{
     res.send('User Registered')
 })
 
+app.post('/login',async(req,res)=>{
+    const {userName, passWord} = req.body;
+    const user = users.find(u=> u.userName === userName)
+    if(!user || passWord !== user.passWord){
+        res.send('Invalid Credentials..')
+    }
+    req.session.user = user
+    res.send('User Logged In..')
+})
+
 // app.get('/visit',(req,res)=>{
 //     if(req.session.page_views){
 //         req.session.page_views++;
