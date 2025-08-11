@@ -1,6 +1,6 @@
-import express from 'express'
-import cookieParser from 'cookie-parser'
-import session from 'express-session'
+import express from "express";
+import cookieParser from "cookie-parser";
+import session from "express-session";
 // import { connectDB } from './config/db.js'
 // import { Person } from './models/person.js'
 // import multer from 'multer'
@@ -9,7 +9,7 @@ import session from 'express-session'
 // import router from './route.js'
 // import {userNameController, searchController } from './controller.js'
 
-const app = express()
+const app = express();
 // const upload = multer({
 //     storage:storage,
 //     limits: {
@@ -17,15 +17,17 @@ const app = express()
 //     }
 // })
 
-const port = 2811
-app.use(cookieParser())
-app.use(session({
-    secret:'sample-secret',
-    resave:false,
-    saveUninitialized:false
-}))
+const port = 2811;
+app.use(cookieParser());
+app.use(
+  session({
+    secret: "sample-secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
-const users = []
+const users = [];
 
 // await connectDB()
 
@@ -34,37 +36,37 @@ const users = []
 // app.use(express.urlencoded({extended:true}))
 // app.use(upload.single('image'))
 
-app.get('/',(req,res)=>{
-    // res.cookie('name','express-app',{maxAge:360000})
-    res.send("Hello, Express")
-})
+app.get("/", (req, res) => {
+  // res.cookie('name','express-app',{maxAge:360000})
+  res.send("Hello, Express");
+});
 
-app.post('/register',async(req,res)=>{
-    const {userName, passWord} = req.body;
-    users.push({
-        userName,
-        passWord
-    })
-    res.send('User Registered')
-})
+app.post("/register", async (req, res) => {
+  const { userName, passWord } = req.body;
+  users.push({
+    userName,
+    passWord,
+  });
+  res.send("User Registered");
+});
 
-app.post('/login',async(req,res)=>{
-    const {userName, passWord} = req.body;
-    const user = users.find(u=> u.userName === userName)
-    if(!user || passWord !== user.passWord){
-        res.send('Invalid Credentials..')
-    }
-    req.session.user = user
-    res.send('User Logged In..')
-})
+app.post("/login", async (req, res) => {
+  const { userName, passWord } = req.body;
+  const user = users.find((u) => u.userName === userName);
+  if (!user || passWord !== user.passWord) {
+    res.send("Invalid Credentials..");
+  }
+  req.session.user = user;
+  res.send("User Logged In..");
+});
 
-app.get('/dashboard', (req,res)=>{
-    if(!req.session.user){
-        res.send('Unauthorized')
-    }else{
-        res.send(`Welcome, ${req.session.user.userName}`)
-    }
-})
+app.get("/dashboard", (req, res) => {
+  if (!req.session.user) {
+    res.send("Unauthorized");
+  } else {
+    res.send(`Welcome, ${req.session.user.userName}`);
+  }
+});
 
 // app.get('/visit',(req,res)=>{
 //     if(req.session.page_views){
@@ -103,7 +105,7 @@ app.get('/dashboard', (req,res)=>{
 //         })
 //         await newPerson.save()
 //         console.log(newPerson);
-        
+
 //         res.send('Person Added')
 //     }catch(err){
 //         res.send(err.message)
@@ -114,11 +116,11 @@ app.get('/dashboard', (req,res)=>{
 // app.put('/person',async (req,res)=>{
 //     // console.log(req.body);
 //     const {id}=req.body;
-    
+
 //     const personData=await Person.findByIdAndUpdate(id,{age:'28'})
 
 //     console.log(personData);
-    
+
 //     res.send('Person Updated')
 // })
 
@@ -145,12 +147,11 @@ app.get('/dashboard', (req,res)=>{
 // app.METHOD(PATH,HANDLER function);
 // Defining a simple route
 
-
 // // Dynamic Routing
 
 // app.get('/user/:username',userNameController)
 
-// Query String 
+// Query String
 // /search?keyword=express
 // app.get('/search',searchController)
 
@@ -241,6 +242,6 @@ app.get('/dashboard', (req,res)=>{
 //     res.send('Internal Server Error')
 // })
 
-app.listen(port,()=>{
-    console.log(`Server is running on http://localhost:${port}`);
-})
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
