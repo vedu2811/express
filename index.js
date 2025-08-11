@@ -1,5 +1,6 @@
 import express from "express";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 // import cookieParser from "cookie-parser";
 // import session from "express-session";
 // import { connectDB } from './config/db.js'
@@ -52,6 +53,16 @@ app.post("/register", async (req, res) => {
     password: hashedPassword,
   });
   res.send("User Registered");
+});
+
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  const user = users.find((u) => u.username === username);
+  if (!user || !(await bcrypt.compare(password, user.password))) {
+    return res.send("Invalid credentials");
+  }
+  const token = jwt.sign({ username: username }, "test#secret");
+  res.json({ token });
 });
 
 // Using sessions for user Authentication
