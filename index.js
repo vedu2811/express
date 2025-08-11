@@ -42,6 +42,7 @@ app.get("/", (req, res) => {
   res.send("Hello, Express");
 });
 
+// Using sessions for user Authentication
 app.post("/register", async (req, res) => {
   const { userName, passWord } = req.body;
   users.push({
