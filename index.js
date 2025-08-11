@@ -1,4 +1,5 @@
 import express from "express";
+import bcrypt from "bcryptjs";
 // import cookieParser from "cookie-parser";
 // import session from "express-session";
 // import { connectDB } from './config/db.js'
@@ -40,6 +41,17 @@ const users = [];
 app.get("/", (req, res) => {
   // res.cookie('name','express-app',{maxAge:360000})
   res.send("Hello, Express");
+});
+
+// Using JWT (Json Web Token) for authentication
+app.post("/register", async (req, res) => {
+  const { username, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  users.push({
+    username,
+    password: hashedPassword,
+  });
+  res.send("User Registered");
 });
 
 // Using sessions for user Authentication
