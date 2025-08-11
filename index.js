@@ -1,6 +1,6 @@
 import express from "express";
-import cookieParser from "cookie-parser";
-import session from "express-session";
+// import cookieParser from "cookie-parser";
+// import session from "express-session";
 // import { connectDB } from './config/db.js'
 // import { Person } from './models/person.js'
 // import multer from 'multer'
@@ -19,14 +19,14 @@ const app = express();
 
 const port = 2811;
 app.use(express.json());
-app.use(cookieParser());
-app.use(
-  session({
-    secret: "sample-secret",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
+// app.use(cookieParser());
+// app.use(
+//   session({
+//     secret: "sample-secret",
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
 
 const users = [];
 
@@ -43,32 +43,32 @@ app.get("/", (req, res) => {
 });
 
 // Using sessions for user Authentication
-app.post("/register", async (req, res) => {
-  const { userName, passWord } = req.body;
-  users.push({
-    userName,
-    passWord,
-  });
-  res.send("User Registered");
-});
+// app.post("/register", async (req, res) => {
+//   const { userName, passWord } = req.body;
+//   users.push({
+//     userName,
+//     passWord,
+//   });
+//   res.send("User Registered");
+// });
 
-app.post("/login", async (req, res) => {
-  const { userName, passWord } = req.body;
-  const user = users.find((u) => u.userName === userName);
-  if (!user || passWord !== user.passWord) {
-    res.send("Invalid Credentials..");
-  }
-  req.session.user = user;
-  res.send("User Logged In..");
-});
+// app.post("/login", async (req, res) => {
+//   const { userName, passWord } = req.body;
+//   const user = users.find((u) => u.userName === userName);
+//   if (!user || passWord !== user.passWord) {
+//     res.send("Invalid Credentials..");
+//   }
+//   req.session.user = user;
+//   res.send("User Logged In..");
+// });
 
-app.get("/dashboard", (req, res) => {
-  if (!req.session.user) {
-    res.send("Unauthorized");
-  } else {
-    res.send(`Welcome, ${req.session.user.userName}`);
-  }
-});
+// app.get("/dashboard", (req, res) => {
+//   if (!req.session.user) {
+//     res.send("Unauthorized");
+//   } else {
+//     res.send(`Welcome, ${req.session.user.userName}`);
+//   }
+// });
 
 // app.get('/visit',(req,res)=>{
 //     if(req.session.page_views){
