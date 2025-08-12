@@ -44,6 +44,10 @@ app.get("/", (req, res) => {
   res.send("Hello, Express");
 });
 
+// FOR AUTOMATIC PROJECT SCAFFOLDING (keeping files in different folders) :
+// Type "express [project_name] in the terminal", it will create a new express app with different files in its related folders.
+// Benefits: maintainability, Scalability, Clean code
+
 // // GET ALL Product
 // app.get("/api/products", (req, res) => {
 //   const products = [
