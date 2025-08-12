@@ -67,6 +67,13 @@ app.get("/api/products/:id", (req, res) => {
   res.status(200).json(product);
 });
 
+// CREATE a NEW Product
+app.post("/api/products", (req, res) => {
+  const newProduct = req.body;
+  newProduct.id = Date.now();
+  res.status(201).json(newProduct);
+});
+
 // // Using JWT (Json Web Token) for authentication
 // app.post("/register", async (req, res) => {
 //   const { username, password } = req.body;
