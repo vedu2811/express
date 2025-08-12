@@ -21,6 +21,12 @@ const app = express();
 
 const port = 2811;
 app.use(express.json());
+
+process.on("uncaughtException", (err) => {
+  console.log(err);
+  process.exit(1);
+});
+
 // app.use(cookieParser());
 // app.use(
 //   session({
