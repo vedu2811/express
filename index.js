@@ -43,6 +43,8 @@ app.get("/", (req, res) => {
   // res.cookie('name','express-app',{maxAge:360000})
   res.send("Hello, Express");
 });
+
+// GET ALL Product
 app.get("/api/products", (req, res) => {
   const products = [
     { id: 1, name: "laptop", price: 100000 },
@@ -51,7 +53,19 @@ app.get("/api/products", (req, res) => {
   res.status(200).json({ products });
 });
 
-// GET ALL Product
+// GET a SINGLE Product
+app.get("/api/products/:id", (req, res) => {
+  const products = [
+    { id: 1, name: "laptop", price: 100000 },
+    { id: 2, name: "mobile", price: 10000 },
+  ];
+  const product = products.find((p) => p.id === Number(req.params.id));
+
+  if (!product) {
+    return res.status(404).json({ message: "Product Not Found" });
+  }
+  res.status(200).json(product);
+});
 
 // // Using JWT (Json Web Token) for authentication
 // app.post("/register", async (req, res) => {
