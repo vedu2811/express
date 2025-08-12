@@ -53,6 +53,15 @@ app.get("/sync-err", (req, res, next) => {
   }
 });
 
+// Asynchronous Error
+app.get("async-err", async (req, res) => {
+  try {
+    await Promise.reject(new Error("Async Error Occured"));
+  } catch (eror) {
+    next(error);
+  }
+});
+
 // FOR AUTOMATIC PROJECT SCAFFOLDING (keeping files in different folders) :
 // Type "express [project_name] in the terminal", it will create a new express app with different files in its related folders.
 // Benefits: maintainability, Scalability, Clean code
