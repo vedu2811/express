@@ -43,6 +43,15 @@ app.get("/", (req, res) => {
   // res.cookie('name','express-app',{maxAge:360000})
   res.send("Hello, Express");
 });
+app.get("/api/products", (req, res) => {
+  const products = [
+    { id: 1, name: "laptop", price: 100000 },
+    { id: 2, name: "mobile", price: 10000 },
+  ];
+  res.status(200).json({ products });
+});
+
+// GET ALL Product
 
 // // Using JWT (Json Web Token) for authentication
 // app.post("/register", async (req, res) => {
