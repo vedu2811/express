@@ -62,6 +62,12 @@ app.get("async-err", async (req, res) => {
   }
 });
 
+app.use((err, req, res, next) => {
+  console.error(err.message);
+  console.log(err.stack);
+  res.status(500).json({ message: err.message });
+});
+
 // FOR AUTOMATIC PROJECT SCAFFOLDING (keeping files in different folders) :
 // Type "express [project_name] in the terminal", it will create a new express app with different files in its related folders.
 // Benefits: maintainability, Scalability, Clean code
