@@ -65,6 +65,16 @@ app.post("/login", async (req, res) => {
   res.json({ token });
 });
 
+app.get("/dashboard", (req, res) => {
+  const token = req.header("Authorization");
+  const decodedToken = jwt.verify(token, "test#secret");
+  if (decodedToken.username) {
+    res.send(`Welcome, ${decodedToken.username}`);
+  } else {
+    res.send("Access Denied");
+  }
+});
+
 // Using sessions for user Authentication
 // app.post("/register", async (req, res) => {
 //   const { userName, passWord } = req.body;
