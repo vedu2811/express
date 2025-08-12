@@ -66,11 +66,15 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
-  const token = req.header("Authorization");
-  const decodedToken = jwt.verify(token, "test#secret");
-  if (decodedToken.username) {
-    res.send(`Welcome, ${decodedToken.username}`);
-  } else {
+  try {
+    const token = req.header("Authorization");
+    const decodedToken = jwt.verify(token, "test#secret");
+    if (decodedToken.username) {
+      res.send(`Welcome, ${decodedToken.username}`);
+    } else {
+      res.send("Access Denied");
+    }
+  } catch (error) {
     res.send("Access Denied");
   }
 });
