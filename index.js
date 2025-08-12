@@ -27,6 +27,10 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
+process.on("unhandledRejection", (reason, promise) => {
+  console.log(reason);
+});
+
 // app.use(cookieParser());
 // app.use(
 //   session({
