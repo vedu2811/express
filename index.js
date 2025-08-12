@@ -44,6 +44,15 @@ app.get("/", (req, res) => {
   res.send("Hello, Express");
 });
 
+// Synchronous Error
+app.get("/sync-err", (req, res, next) => {
+  try {
+    throw new error("Something went wrong!");
+  } catch (error) {
+    next(error);
+  }
+});
+
 // FOR AUTOMATIC PROJECT SCAFFOLDING (keeping files in different folders) :
 // Type "express [project_name] in the terminal", it will create a new express app with different files in its related folders.
 // Benefits: maintainability, Scalability, Clean code
