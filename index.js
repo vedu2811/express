@@ -47,17 +47,17 @@ app.get("/", (req, res) => {
 // Synchronous Error
 app.get("/sync-err", (req, res, next) => {
   try {
-    throw new error("Something went wrong!");
+    throw new Error("Something went wrong!");
   } catch (error) {
     next(error);
   }
 });
 
 // Asynchronous Error
-app.get("async-err", async (req, res) => {
+app.get("/async-err", async (req, res, next) => {
   try {
     await Promise.reject(new Error("Async Error Occured"));
-  } catch (eror) {
+  } catch (error) {
     next(error);
   }
 });
